@@ -71,10 +71,10 @@ class DonationsController extends Controller
             });
             
 
-            Session::flash('success','Je hebt succesvol gedoneerd opgeslaan');
+            Session::flash('success','Je hebt succesvol gedoneerd');
         }  
 
-        return back();
+        return redirect('welcome');
         }
 
         
