@@ -4,7 +4,7 @@
 <div class="container">
     <h1>Explore {{ $category->name }}</h1> <br/>
     <h5>We found <strong>{{$category->projects->count()}} projects</strong></h5>
-    `<div class="row">
+    <div class="row">
         @foreach ($categories as $category)
             <ul>
                 <a href="{{ route('category',$category->id)}}"><li>{{ $category->name}}</li></a>

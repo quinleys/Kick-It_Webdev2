@@ -19,3 +19,5 @@
   
 ## comments
 -pdf downloaden duurt lang om te downloaden dus staat momenteel in commentaar @PagesController-invoice
+
+-voor mails heb ik momenteel mailtrap gebruikt, daarvoor heb ik gebruik gemaakt van mailgun.

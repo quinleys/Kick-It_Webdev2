@@ -21,49 +21,49 @@ class ImagesTableSeeder extends Seeder
         DB::table('images')->insert([
             'project_id' => 1,
             'filepath' => 'storage/project-1',
-            'filename' => 'project-1_1.jpg',
+            'filename' => 'project-1_1.png',
             'created_at' => '2019-06-08 17:20:53',
             'updated_at' => '2019-06-08 17:20:53'
         ]);
         DB::table('images')->insert([
             'project_id' => 2,
             'filepath' => 'storage/project-2',
-            'filename' => 'project-2.jpg',
+            'filename' => 'project-2.png',
             'created_at' => '2019-06-08 17:20:53',
             'updated_at' => '2019-06-08 17:20:53'
         ]);
         DB::table('images')->insert([
             'project_id' => 2,
             'filepath' => 'storage/project-2',
-            'filename' => 'project-2_1.jpg',
+            'filename' => 'project-2_1.png',
             'created_at' => '2019-06-08 17:20:53',
             'updated_at' => '2019-06-08 17:20:53'
         ]);
         DB::table('images')->insert([
             'project_id' => 3,
             'filepath' => 'storage/project-3',
-            'filename' => 'project-3.jpg',
+            'filename' => 'project-3.png',
             'created_at' => '2019-06-08 17:20:53',
             'updated_at' => '2019-06-08 17:20:53'
         ]);
         DB::table('images')->insert([
             'project_id' => 3,
             'filepath' => 'storage/project-3',
-            'filename' => 'project-3_1.jpg',
+            'filename' => 'project-3_1.png',
             'created_at' => '2019-06-08 17:20:53',
             'updated_at' => '2019-06-08 17:20:53'
         ]);
         DB::table('images')->insert([
             'project_id' => 4,
             'filepath' => 'storage/project-4',
-            'filename' => 'project-4.jpg',
+            'filename' => 'project-4.png',
             'created_at' => '2019-06-08 17:20:53',
             'updated_at' => '2019-06-08 17:20:53'
         ]);
         DB::table('images')->insert([
             'project_id' => 4,
             'filepath' => 'storage/project-4',
-            'filename' => 'project-4_1.jpg',
+            'filename' => 'project-4_1.png',
             'created_at' => '2019-06-08 17:20:53',
             'updated_at' => '2019-06-08 17:20:53'
         ]);
