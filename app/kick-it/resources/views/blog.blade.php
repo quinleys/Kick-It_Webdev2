@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container containerstyle">
     <h1>Blog </h1> <br/>
     <h5>We found <strong>{{$posts->count()}} blogs</strong></h5>
 
@@ -9,7 +9,7 @@
         @if($posts->count() > 0)
             @foreach($posts as $post)
                 <div class="col-md-6">
-                        <div class="card ">
+                        <div class="card cardstyle">
                             <div class='card-body' data-projectId="{{ $post->id }}"> 
                                 <h3 class="card-title">{{ $post->name }}</h3>
                                 <p class="card-text">{{ $post->intro }} </p>
@@ -19,6 +19,7 @@
                                    
                                 </div>
                             </div>
+                            <br/>
                         </div>
                 
                 

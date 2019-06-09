@@ -1,4 +1,4 @@
-<div class="container">
+<div class="footerstyle">
 <hr>
 <a href="{{url('/contact')}}">Contact us </a>
 <a href="{{url('/about')}}">about us </a>

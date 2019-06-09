@@ -38,7 +38,7 @@
                             <div class="field">
                                     <div class="control">
                                         <input class="input" type="hidden" name="project_id"  value ="{{ $project->id }}">
-                                        {{ $project->name }}
+                                       
                                     </div>
                                 </div>
                             <div class="form-group">

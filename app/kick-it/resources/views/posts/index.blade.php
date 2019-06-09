@@ -3,11 +3,16 @@
 
 
 @section('content')
-<div class="container">
-    All Blog posts <br>
+<div class="container containerstyle">
+  <div class="row rowstyle">
+    <h1> Blog posts </h1> <br>
+  </div>
+  <div class="row">
     <a href="{{ url('/posts/create') }}" class="btn btn-primary">Make Post</a>
-    
-    <table class="table">
+    <br/>
+  </div>
+  <div class="row rowstyle">
+        <table class="table">
             <thead>
                     <tr>
                       <th scope="col">#</th>
@@ -25,7 +30,6 @@
                     <tr>
                       <th scope="row"> {{ $post->id }}</th>
                       <td>{{ $post->name }}</td>
-                      <td>{{ $post->intro }}</td>
                       <td>{{ $post->user->name }}</td>
                       <td>{{ $post->updated_at}}</td>
                       <td>{{ $post->created_at}}</td>
@@ -43,5 +47,6 @@
 
                   </tbody>
     </table>
+</div>
 </div>
 @endsection

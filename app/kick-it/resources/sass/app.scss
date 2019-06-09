@@ -1,6 +1,8 @@
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+//@import url('href="https://fonts.googleapis.com/css?family=Karla');
+
 
 // Variables
 @import 'variables';
@@ -15,3 +17,40 @@
 // noty
 @import "~noty/src/noty.scss";
 @import "~noty/src/themes/mint.scss";
+
+.containerstyle
+{
+  padding-top : 20px;
+}
+.titlestyle{
+  text-decoration: underline;
+  text-decoration-color: $homeblue;
+  
+}
+.buttontest{
+  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 12px;
+  background-color: $homeblue;
+  color: white;
+}
+
+.cardstyle
+{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.footerstyle
+{
+  border-top: 3px grey;
+}
+
+.rowstyle
+{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}

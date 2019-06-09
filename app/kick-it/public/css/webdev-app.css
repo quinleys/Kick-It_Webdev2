@@ -450,7 +450,7 @@ button,
 input,
 select,
 textarea {
-  font-family: "Nunito", sans-serif;
+  font-family: "Karla", sans-serif;
 }
 
 code,
@@ -1090,15 +1090,15 @@ a.has-text-danger:focus {
 }
 
 .is-family-primary {
-  font-family: "Nunito", sans-serif !important;
+  font-family: "Karla", sans-serif !important;
 }
 
 .is-family-secondary {
-  font-family: "Nunito", sans-serif !important;
+  font-family: "Karla", sans-serif !important;
 }
 
 .is-family-sans-serif {
-  font-family: "Nunito", sans-serif !important;
+  font-family: "Karla", sans-serif !important;
 }
 
 .is-family-monospace {

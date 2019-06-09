@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-<h1> images for {{ $project->name }} </h1>
+<h1> Upload images for project <strong>{{ $project->name }}</strong> </h1>
 <div class="column">
         <form action="{{route('postUpload')}}" method="post" enctype="multipart/form-data">
             @csrf
@@ -12,7 +12,7 @@
             <div class="field">
                 <div class="control">
                     <input class="input" type="hidden" name="project_id" placeholder=" {{ $project->id }}" value ="{{ $project->id }}">
-                    {{ $project->id }}
+                    
                 </div>
             </div>
             

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container containerstyle">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <img src="storage/avatars/{{ Auth::user()->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
@@ -24,7 +24,7 @@
             @foreach($projects as $project)
                 @if($project->user_id == Auth::user()->id)
                     <div class="col-md-6">
-                        <div class="card">
+                        <div class="card cardstyle">
                             <div class="card-header"> 
                                 <a href=" {{ route('project_path', ['project' => $project->id]) }}"> {{ $project->name }} </a> 
                             </div>
@@ -53,12 +53,19 @@
         
                             
                         </div>
+                        <br/>
                     </div>
                 @endif
         
             @endforeach
+            
         
         </div>
+        <div class="row">
+                <div class="text-center">
+                    {!! $projects->links(); !!}
+                </div>
+            </div>
         <div class="row">
                 <div class="col-md-10 col-md-offset-2">
                     <br>
@@ -73,21 +80,25 @@
                             <th scope="col">Package name</th>
                           </tr>
                         </thead>
-                        
-                        @foreach ($donations as $donation)
+                        @if($donations->count()>0)
+                            @foreach ($donations as $donation)
+                                
                             
-                        
-                        <tbody>
-                          <tr>
-                            <th scope="row"> {{ $donation->id }} </th>
-                            <td>{{ $donation->project->name }}</td>
-                            <td>{{ $donation->project->user->name }}</td>
-                            <td>{{ $donation->amount }} credits</td>
-                            <td>{{ $donation->package->title }} </td>
-                            
-                          </tr>
-                          @endforeach
-                          
+                            <tbody>
+                            <tr>
+                                <th scope="row"> {{ $donation->id }} </th>
+                                <td>{{ $donation->project->name }}</td>
+                                <td>{{ $donation->project->user->name }}</td>
+                                <td>{{ $donation->amount }} credits</td>
+                                <td>{{ $donation->package->title }} </td>
+                                
+                            </tr>
+                            @endforeach
+                          @else 
+                                    <tr>
+                                    <td>you dont have any donations</td>
+                                    </tr>
+                            @endif
                         </tbody>
                       </table>
                 </div>
@@ -105,17 +116,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($packages as $package)
-                                        @if($package->id = $donation->package_id)
-                                        <tr>
-                                                <th> {{ $package->id}} </th>
-                                                <td> {{ $package->title }} </td>
-                                                <td> {{ $package->description }} </td>
-                                                <td> {{ $package->min_value }} </td>
-                                                <td> {{ $package->max_value }} </td>
-                                            </tr>
-                                            @endif
-                                    @endforeach
+                                    @if($donations->count()>0)
+                                        @foreach ($packages as $package)
+                                            @if($package->id = $donation->package_id)
+                                            <tr>
+                                                    <th> {{ $package->id}} </th>
+                                                    <td> {{ $package->title }} </td>
+                                                    <td> {{ $package->description }} </td>
+                                                    <td> {{ $package->min_value }} </td>
+                                                    <td> {{ $package->max_value }} </td>
+                                                </tr>
+                                                @endif
+                                        @endforeach
+                                    @else 
+                                    <tr>
+                                    <td>you dont have any packages</td>
+                                    </tr>
+                                    @endif
                                 </tbody>
                         </table>
                 </div>

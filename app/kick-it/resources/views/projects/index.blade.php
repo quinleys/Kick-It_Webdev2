@@ -7,10 +7,10 @@
 @auth
 
 
-<div class="container" id="app">
+<div class="container containerstyle" id="app">
 
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col">
             <h1>Hello, {{ Auth::user()->name }} !</h1>
             <h3> Do you have a great idea? Don't wait any longer.</h3>
             <h4> Start today!</h4>
@@ -20,77 +20,64 @@
 
 
 <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col">
     <h1>your projects: </h1>
     </div>
 
 </div>
 
-<div class="row">
-
-    @foreach($projects as $project)
-        @if($project->user_id == Auth::user()->id)
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header"> 
-                        <a href=" {{ route('project_path', ['project' => $project->id]) }}"> {{ $project->name }} </a> 
-                    </div>
-                    <div class='card-body' data-projectId="{{ $project->id }}"> <br>
-                        description:{{ $project->intro }} <br>
-                        description:{{ $project->description }} <br>
-                        Credits:{{ $project->credits }}/{{ $project->creditgoal }} <br>
-                        @if($project->category_id){
-                        <p> Category: {{ $project->category->name}}</p>
-                        }
-                        @endif
-                        Made by: {{ $project->user->name }}
-
-                        <p class="lead">
-                            posted
-                            {{ $project->created_at->diffForHumans() }}
-                        </p>
-                        <a class="btn btn-primary" role="button" href="{{ route('edit_project_path', ['project'=>$project->id]) }}">Edit</a>
-
-                        <form action="{{ route('delete_project_path', ['project'=>$project->id]) }}" method="POST">
-                            @csrf 
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                        <ul>
-                            <li><button>like</button> {{ $project->favorite_to_users }}</li>
-                            <li><a href=" {{ route('project_path', ['project' => $project->id]) }}"> {{ $project->comments()->count() }} comments</li></a>
-                            <a href=""> 
-                                <small> 0 </small>
-                                <i class="fa fa-thumbs-up" aria-hidden="true"> </i>
-                            </a>
-                        </ul>
-                        <div>
-                          
+        <div class="row">
+                @foreach($projects as $project)
+                    <div class="col-md-4">
+                        <div class="card cardstyle">
+                            @foreach ($images as $image)
+                                @if($image->project_id === $project->id)
+                                    <img src="{{ asset($image->filepath . '/' . $image->filename) }}" class="card-img-top" alt="">
+                                    @break
+                                @endif
+                            @endforeach
+                            <div class="card-body">
+                                <h3 class="card-title">{{ $project->name }}</h3>
+                                @foreach ($project->tags as $tag)
+                                        <span class="badge badge-primary"> {{ $tag->name }} </span>
+                                    @endforeach
+                                <p class="card-text">{{ $project->intro }} </p>
+                                    <a href="{{ route('category',['category' => $project->category->id] )}}">
+                                                <p class="card-text"> Category: {{ $project->category->name}}</p></a>
+                                                <p class="card-text"><small class="text-muted"> posted {{ $project->created_at->diffForHumans() }}</small></p>
+                                                <a href="{{ route('project_path', ['project' => $project->id]) }}" class="btn btn-primary">View</a>
+                                                <br>
+                                                <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{{$project->credits}}" aria-valuemin="0" aria-valuemax="{{$project->creditgoal}}" style="width:{{$project->credits / $project->creditgoal * 100 }}%">
+                                                            {{$project->credits}} credits of {{$project->creditgoal}}
+                                                        </div>
+                                                    </div>
+                                                <footer class="blockquote-footer">Made by: <cite title="Source Title">{{ $project->user->name }}</cite></footer>
+                            </div>
                         </div>
-                        
-
+                        <br/>
                     </div>
-
-                    
+                @endforeach
+            
+        </div>
+        <div class="row">
+                <div class="text-center">
+                    {!! $projects->links(); !!}
                 </div>
             </div>
-        @endif
-
-    @endforeach
-
-</div>
 </div>
 @endauth
 @guest 
-<div class="container">
+<div class="container containerstyle">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col">
                 <h1>Hello, guest! </h1>
                 <h3> Do you have a great idea? Don't wait any longer. Register and spread your idea!</h3>
 
                         <a class="btn btn-primary" role="button" href="{{ route('register') }}">{{ __('Register') }}</a>
                         <br>
-                        already have an account? <a class="button" href="c </a>
+                        <a href="{{ route('login') }}">
+                        already have an account?</a>
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
 <div class="container">
 <div class="row">
     <div class="col-md-8">
-        <h1> Packages </h1>
+        <h1> Packages for project <strong>{{$project->name}}</strong> </h1>
         <table class="table">
             <thead>
                 <tr>
@@ -36,24 +36,24 @@
                             <div class="field">
                                     <div class="control">
                                         <input class="input" type="hidden" name="project_id"  value ="{{ $project->id }}">
-                                        {{ $project->id }}
+                                        
                                     </div>
                                 </div>
                             <div class="form-group">
                                 <label for='title'>Title</label>
-                                <input type="text" class="form-control" name='title' placeholder="packages">
+                                <input type="text" class="form-control" name='title' placeholder="Package name">
                             </div>
                             <div class="form-group">
                                     <label for='description'>description</label>
-                                    <textarea type="text" class="form-control" name='description' placeholder="tags"></textarea>
+                                    <textarea type="text" class="form-control" name='description'></textarea>
                                 </div>
                                 <div class="form-group">
                                         <label for='min_value'>Min Value</label>
-                                        <input type="number" class="form-control" name='min_value' placeholder="tags">
+                                        <input type="number" class="form-control" name='min_value' placeholder="min value">
                                     </div>
                                     <div class="form-group">
                                             <label for='max_value'>Max Value</label>
-                                            <input type="number" class="form-control" name='max_value' placeholder="tags">
+                                            <input type="number" class="form-control" name='max_value' placeholder="max value">
                                         </div>
                             <div class="form-group">
                             <button type="submit" class="btn btn-primary mb-2">Add Package!</button>

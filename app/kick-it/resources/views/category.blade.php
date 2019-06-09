@@ -24,6 +24,9 @@
                                 @endforeach
                             <div class='card-body' data-projectId="{{ $project->id }}"> 
                                 <h3 class="card-title">{{ $project->name }}</h3>
+                                @foreach ($project->tags as $tag)
+                                            <span class="badge badge-primary"> {{ $tag->name }} </span>
+                                        @endforeach
                                 <p class="card-text">{{ $project->intro }} </p>
                                  <a href="{{ route('category',['category' => $project->category->id] )}}">
                                     <p class="card-text"> Category: {{ $project->category->name}}</p></a>

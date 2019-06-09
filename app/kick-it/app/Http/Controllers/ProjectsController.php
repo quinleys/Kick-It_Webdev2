@@ -11,6 +11,7 @@ use App\Package;
 use App\Tag;
 use App\Category;
 use Session;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -23,8 +24,10 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderBy('created_at','desc')->get();
-        return view('projects.index', ['projects'=>$projects]);
+        $user = Auth::user();
+            $projects = Project::orderBy('created_at','desc')->paginate(6);
+        $images = Image::all();
+        return view('projects.index', ['projects'=>$projects, 'images'=>$images]);
     }
 
     /**
@@ -54,6 +57,7 @@ class ProjectsController extends Controller
             'description'=>'required',
             'creditgoal'=>'required|numeric',
             'creditgoal'=>'required|integer',
+            'shortintro'=>'required',
             //'filename' => 'required',
             //'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ));
@@ -86,6 +90,7 @@ class ProjectsController extends Controller
         $project->user_id = $userid;
         $project->filename= 'test';
         $project->category_id =  $request->category;
+        $project->shortintro = $request->shortintro;
         //$project->filename=json_encode($data);
 
         $project->save();
@@ -144,6 +149,7 @@ class ProjectsController extends Controller
 
         $project->name=$request->name;
         $project->label=$request->label;
+        $project->shortintro=$request->shortintro;
         $project->description=$request->description;
         $project->creditgoal=$request->creditgoal;
         

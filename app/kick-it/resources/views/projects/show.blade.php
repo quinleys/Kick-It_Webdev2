@@ -44,20 +44,22 @@
       </div>
     <div class="container">
             <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6" style="">
             <br/>
+            <div class="card">
+                <div class="card-header">
             <h1> {{$project->name}}</h1>
-            <div>
+                </div>
+            <div class="card-body">
                 <p class="lead"> {{$project->intro}}</p>
-            </div>
-            <div>
                 <p> {{$project->description}}</p>
             </div>
             
         </div>
-            <div class="col-4">
+        </div>
+            <div class="col">
                 <br/>
-                <div class="card text-white bg-primary mb-3">
+                <div class="card text-white bg-primary mb-3 hidden-xl-down">
                     <div class="card-header">
                         <h1>Info</h1>
                     </div>
@@ -70,26 +72,27 @@
                             <p> Made by: <strong> {{$project->user->name}} </strong></p>
                             @Auth
                                 @if(Auth::user()->id == $project->user_id)
-                                        <a class="btn btn-warning" role="button" href="{{ route('edit_project_path', ['project'=>$project->id]) }}">Edit</a>
-                                        <a class="btn btn-success" href="{{ route('packages.edit',['project'=>$project->id]) }}">Add Packages </a>
-                                        <a class="btn btn-success" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
+                                        <a class="btn btn-outline-light btn-lg btn-block" role="button" href="{{ route('edit_project_path', ['project'=>$project->id]) }}">Edit</a>
+                                        <a class="btn btn-success btn-lg btn-block" href="{{ route('packages.edit',['project'=>$project->id]) }}">Add Packages </a>
+                                        <a class="btn btn-success btn-lg btn-block" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
+                                        <br/>
                                         <form action="{{ route('delete_project_path', ['project'=>$project->id]) }}" method="POST">
                                                 @csrf 
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="submit" class="btn btn-danger btn-lg btn-block">Delete</button>
                                         </form>
                                 @endif
 
                                 @if(Auth::user()->id != $project->user_id)
-                                    <a class="btn btn-success"  href="{{ route('donate.index', ['project'=>$project->id]) }}">Donate </a>
-                                    <a class="btn btn-success" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
+                                    <a class="btn btn-success btn-lg btn-block"  href="{{ route('donate.index', ['project'=>$project->id]) }}">Donate </a>
+                                    <a class="btn btn-success btn-lg btn-block" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
                                 
                                 @endif
                                 @endAuth
 
                                 @guest
-                                    <a class="btn btn-success" href="{{ route('login') }}">Donate </a>
-                                    <a class="btn btn-success" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
+                                    <a class="btn btn-success btn-lg btn-block" href="{{ route('login') }}">Donate </a>
+                                    <a class="btn btn-success btn-lg btn-block" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
                                 @endguest
                     </div>
                 </div>
@@ -119,7 +122,7 @@
                         </div>
                         @endforeach
                 </div>
-                <a id="more" href="#" onclick="$('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'See Less Details':'See More Details');});">Look at the images</a>
+                <a id="more" href="#" onclick="$('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'See Less Details':'Look at the images');});">Look at the images</a>
                 
                 <div class="detailspackages" style="display:none">
                         <h4>Packages</h4>
@@ -146,8 +149,9 @@
                                 </tbody>
                         </table>
                 </div>
-                <a id="morepackages" href="#" onclick="$('.detailspackages').slideToggle(function(){$('#morepackages').html($('.detailspackages').is(':visible')?'See Less Details':'See More Details');});">Look at the donation packages</a>
+                <a id="morepackages" href="#" onclick="$('.detailspackages').slideToggle(function(){$('#morepackages').html($('.detailspackages').is(':visible')?'See Less Details':'Look at the donation packages');});">Look at the donation packages</a>
                 
+                @Auth
                 @if(Auth::user()->id == $project->user_id)
                 <div class="moredonation" style="display:none">
                         <h4>Donators</h4>
@@ -174,26 +178,32 @@
                                 </tbody>
                         </table>
                 </div>
-                <a id="moredonation" href="#" onclick="$('.moredonation').slideToggle(function(){$('#moredonation').html($('.moredonation').is(':visible')?'See Less Details':'See More Details');});">Look at the donations</a>                    
+                <a id="moredonation" href="#" onclick="$('.moredonation').slideToggle(function(){$('#moredonation').html($('.moredonation').is(':visible')?'See Less Details':'Look at the donations');});">Look at the donations</a>                    
                 @endif
+                @endAuth
 
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div>
                             <br>
-                        <h3>Comments <small> {{ $project->comments()->count() }} total </small>  </h3>
+                        <h3>Comment(s) <small> {{ $project->comments()->count() }} total </small>  </h3>
                     </div>
                     @foreach ($project->comments as $comment)
+
                     <div class="card">
                         
                         <div class="card-body">
-                                <img src="../../storage/avatars/{{ $comment->user->avatar }}" style="width:32px; height:32px; margin-right:10px; border-radius:50%">
+                                <img class="float-left" src="../../storage/avatars/{{ $comment->user->avatar }}" style="width:100px; height:100px; margin-right:10px; border-radius:50%">
                             <p class="lead">{{$comment->user->name}}</p>
                             
                             <p>{{$comment->comment}}</p>
-                            <p>posted
-                            {{ $comment->created_at->diffForHumans() }}
-                        </p>
+                            <footer>
+                            <small>posted
+                                <cite title="Source Title">
+                                    {{ $comment->created_at->diffForHumans() }}
+                                </cite>
+                            </small>
+                            </footer>
                         </div>
                     </div>    
                     @endforeach
@@ -202,28 +212,28 @@
             @Auth
             
             <div class="row">
-                
+                    <div class="col-md-12">
                         <form action=" {{ route('comments.store',$project->id) }}" method="POST">
                         @csrf 
-                            <div class="col-md-12">
+                            
                                     <div class="form-group ">
                                     <label for='comment'>comment:</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" name='comment'>
-                                    </textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" name='comment'></textarea>
                                     </div>
         
-                                    <button type="submit" class="btn btn-primary mb-2">Add comment</button>
-                                </div>
+                                    <button type="submit" class="btn btn-primary mb-2 btn-lg btn-block">Add comment</button>
+                                
                             
                         
                         </form>
+                    </div>
                 </div>
 
                 
             @endAuth
 
             @guest
-                <a class="button" href="{{ route('login') }}">{{ __('Sign In') }} to write a comment.</a>
+                <a class="button btn-lg btn-block" href="{{ route('login') }}">{{ __('Sign In') }} to write a comment.</a>
              @endguest
             </div>
         </div>

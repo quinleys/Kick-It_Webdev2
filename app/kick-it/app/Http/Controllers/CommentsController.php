@@ -54,7 +54,7 @@ class CommentsController extends Controller
         $comment->comment=$request->comment;
         $comment->approved=true;
         $comment->project()->associate($project);
-        $comment->user_id = $currentUser->id;
+        $comment->user_id = $currentuser->id;
         $comment->save();
 
         Session::flash('success','Jouw comment is opgeslaan.');

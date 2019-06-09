@@ -31,13 +31,21 @@ class DonationsController extends Controller
 
         $currentUser = Auth::user();
 
+        $admin = User::find(1);
+
         $project = Project::find($id);
 
 
         if($currentUser->credits > $donationAmount){
 
-            $project->credits = $project->credits + $donationAmount;
+            // tax 10%
+            $tax = 0.1;
+            $amountTax = $donationAmount * $tax;
+            $projectAmount = $donationAmount - $amountTax;
+            $project->credits = $project->credits + $projectAmount;
+            $admin->credits = $admin->credits + $amountTax;
             $currentUser->credits = $currentUser->credits - $donationAmount;
+            $admin->save();
             $project->save();
             $currentUser->save();
 
