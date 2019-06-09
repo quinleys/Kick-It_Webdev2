@@ -25,7 +25,7 @@
                     <input type="file" name="featured_image" class="form-control-file">
                 </div>
                 <div class="form-group">
-                <button type="submit" class="btn btn-primary mb-2">This is my post!</button>
+                <button type="submit" class="btn buttonstyle mb-2">This is my post!</button>
                 </div>
                 </form>
 

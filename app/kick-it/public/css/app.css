@@ -11025,3 +11025,11 @@ a.text-dark:focus {
   color: #297DF6;
 }
 
+.cardintro div {
+  border: solid 2px blue;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 50px;
+}
+

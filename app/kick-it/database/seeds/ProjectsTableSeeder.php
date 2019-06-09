@@ -21,8 +21,8 @@ class ProjectsTableSeeder extends Seeder
             'user_id' => 1,
             'filename' => 'test',
             'category_id' => 3,
-            'created_at' => '2019-06-08 17:20:53',
-            'updated_at' => '2019-06-08 17:20:53'
+            'created_at' => '2019-06-08 14:20:53',
+            'updated_at' => '2019-06-08 14:20:53'
         ]);
         DB::table('projects')->insert([
             'name' => 'Lupe Cordless Vacuum Cleaner. Powerful. Enduring. Flexible.',
@@ -44,8 +44,8 @@ class ProjectsTableSeeder extends Seeder
             'user_id' => 2,
             'filename' => 'test',
             'category_id' => 2,
-            'created_at' => '2019-06-08 17:20:53',
-            'updated_at' => '2019-06-08 17:20:53'
+            'created_at' => '2019-06-08 14:20:53',
+            'updated_at' => '2019-06-08 14:20:53'
         ]);
         DB::table('projects')->insert([
             'name' => 'Travel Tripod by Peak Design',
@@ -61,8 +61,8 @@ class ProjectsTableSeeder extends Seeder
             'user_id' => 3,
             'filename' => 'test',
             'category_id' => 4,
-            'created_at' => '2019-06-08 17:20:53',
-            'updated_at' => '2019-06-08 17:20:53'
+            'created_at' => '2019-06-08 14:20:53',
+            'updated_at' => '2019-06-08 14:20:53'
         ]);
         DB::table('projects')->insert([
             'name' => 'Theater of Terror: Revenge of the Queers',
