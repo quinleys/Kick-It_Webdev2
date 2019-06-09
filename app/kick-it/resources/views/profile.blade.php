@@ -125,9 +125,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if($donations->count()>0)
-                                        @foreach ($packages as $package)
-                                            @if($package->id = $donation->package_id)
+                                    @if($packages->count()>0)
+                                        @foreach ($donations as $donation)
+                                            @foreach ($packages as $package)
+                                            @if($package->id === $donation->package_id)
                                             <tr>
                                                     <th> {{ $package->id}} </th>
                                                     <td> {{ $package->title }} </td>
@@ -136,6 +137,7 @@
                                                     <td> {{ $package->max_value }} </td>
                                                 </tr>
                                                 @endif
+                                        @endforeach
                                         @endforeach
                                     @else 
                                     <tr>

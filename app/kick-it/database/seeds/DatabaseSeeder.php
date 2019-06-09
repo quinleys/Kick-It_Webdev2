@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             Project_TagTableSeeder::class,
             PackagesTableSeeder::class,
             CommentsTableSeeder::class,
+            DonationsTableSeeder::class,
             
         ]);
     }

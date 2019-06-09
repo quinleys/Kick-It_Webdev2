@@ -17,7 +17,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => bcrypt('secret'),
             'admin' => true,
-            'avatar' => 'default.jpg'
+            'avatar' => 'default.jpg',
+            'credits' => 500
         ]);
 
         DB::table('users')->insert([
@@ -26,7 +27,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'quinten@leysen.com',
             'password' => bcrypt('secret'),
             'admin' => false,
-            'avatar' => 'quinten.jpg'
+            'avatar' => 'quinten.jpg',
+            'credits' => 500
         ]);
 
         DB::table('users')->insert([
@@ -35,7 +37,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'fa@fa.com',
             'password' => bcrypt('secret'),
             'admin' => false,
-            'avatar' => 'fa.jpg'
+            'avatar' => 'fa.jpg',
+            'credits' => 500
         ]);
 
         DB::table('users')->insert([
@@ -44,7 +47,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'mela@ya.com',
             'password' => bcrypt('secret'),
             'admin' => false,
-            'avatar' => 'mela.jpg'
+            'avatar' => 'mela.jpg',
+            'credits' => 500
         ]);
     }
 }
