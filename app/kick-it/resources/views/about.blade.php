@@ -30,11 +30,9 @@
             </div>
 @endif
 <div class="container containerstyle">
-    <div class="row rowstyle">
-        <div class="col-md-12">
+ 
             <h1>{{ $aboutpage->title }}</h1>
-            <div class="card">
-                <div class="card-body">
+
             <p class="lead"> {{ $aboutpage->intro }} </p>
             <p> {{ $aboutpage->bodyText}} </p>
                 </div>
