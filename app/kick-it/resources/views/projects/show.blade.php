@@ -2,7 +2,6 @@
 <style>
         .carousel{
             background: #2f4357;
-            margin-top: 20px;
         }
         .carousel-item{
             text-align: center;
@@ -56,6 +55,7 @@
             </div>
             
         </div>
+        <br/>
         </div>
             <div class="col">
                 <br/>
@@ -73,8 +73,8 @@
                             @Auth
                                 @if(Auth::user()->id == $project->user_id)
                                         <a class="btn btn-outline-light btn-lg btn-block" role="button" href="{{ route('edit_project_path', ['project'=>$project->id]) }}">Edit</a>
-                                        <a class="btn btn-success btn-lg btn-block" href="{{ route('packages.edit',['project'=>$project->id]) }}">Add Packages </a>
-                                        <a class="btn btn-success btn-lg btn-block" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
+                                        <a class="btn btn-outline-light btn-lg btn-block" href="{{ route('packages.edit',['project'=>$project->id]) }}">Add Packages </a>
+                                        <a class="btn bbtn-outline-light btn-lg btn-block" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
                                         <br/>
                                         <form action="{{ route('delete_project_path', ['project'=>$project->id]) }}" method="POST">
                                                 @csrf 
@@ -84,15 +84,15 @@
                                 @endif
 
                                 @if(Auth::user()->id != $project->user_id)
-                                    <a class="btn btn-success btn-lg btn-block"  href="{{ route('donate.index', ['project'=>$project->id]) }}">Donate </a>
-                                    <a class="btn btn-success btn-lg btn-block" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
+                                    <a class="btn btn-outline-light btn-lg btn-block"  href="{{ route('donate.index', ['project'=>$project->id]) }}">Donate </a>
+                                    <a class="btn btn-outline-light btn-lg btn-block" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
                                 
                                 @endif
                                 @endAuth
 
                                 @guest
-                                    <a class="btn btn-success btn-lg btn-block" href="{{ route('login') }}">Donate </a>
-                                    <a class="btn btn-success btn-lg btn-block" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
+                                    <a class="btn btn-outline-light btn-lg btn-block" href="{{ route('login') }}">Donate </a>
+                                    <a class="btn btn-outline-light btn-lg btn-block" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
                                 @endguest
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                 @Auth
                 @if(Auth::user()->id == $project->user_id)
                 <div class="moredonation" style="display:none">
-                        <h4>Donators</h4>
+                        <h4>Donators ( {{$donations->count()}} )</h4>
                         <table class="table">
                                 <thead>
                                     <tr>
@@ -168,7 +168,7 @@
                                 <tbody>
                         @foreach ($donations as $donation)
                         <tr>
-                                <th> {{ $donation->id }} </th>
+                                <th> {{ $loop->index+1 }} </th>
                                 <td> {{ $donation->user->name }} </td>
                                 <td> {{ $donation->package->title }} </td>
                                 <td> {{ $donation->amount }} </td>
@@ -185,8 +185,9 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div>
-                            <br>
-                        <h3>Comment(s) <small> {{ $project->comments()->count() }} total </small>  </h3>
+                            <br/>
+                        <h3>Comment(s) <small> {{ $project->comments()->count() }} total: </small>  </h3>
+                        <br/>
                     </div>
                     @foreach ($project->comments as $comment)
 
@@ -205,7 +206,7 @@
                             </small>
                             </footer>
                         </div>
-                    </div>    
+                    </div> <br/>   
                     @endforeach
                 </div>
             </div>
@@ -240,33 +241,6 @@
     </div>
 </div>
 
-
-@Auth
-<!-- Modal -->
-<div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header" style="background: orange">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="ion-android-close"></span></button>
-                    <h4 class="modal-title" id="myModalLabel" style="color: whitesmoke;">Donation for {{$project -> name }}</h4>
-                </div>            <!-- Modal Body -->
-                <div class="modal-body">
-                    <form  action=" {{ route('donate.post',['project'=>$project->id]) }}" method="POST">
-                        @csrf
-                    <p> Current credits: {{ Auth::user()->credits }}
-                            <div class="form-group">
-                                    <label for='credits'>How many credits ?</label>
-                                    <input type="number" class="form-control" name='credits' placeholder="min: 1">
-                                    <a class="btn btn-primary"> Donate </a>
-                                </div>
-                            </form>
-                </div>
-            </div>
-        </div>
-    </div>
-        @endAuth
-</div>
 
 <script>
 

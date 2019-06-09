@@ -1,8 +1,8 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-//@import url('href="https://fonts.googleapis.com/css?family=Karla');
-
+//@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Karla');
+@import url('https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre');
 
 // Variables
 @import 'variables';
@@ -23,8 +23,8 @@
   padding-top : 20px;
 }
 .titlestyle{
-  text-decoration: underline;
-  text-decoration-color: $homeblue;
+  font-family: $font-family-serif;
+  
   
 }
 .buttontest{

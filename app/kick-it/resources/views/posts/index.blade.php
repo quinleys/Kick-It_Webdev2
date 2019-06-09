@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container containerstyle">
-  <div class="row rowstyle">
+  <div class="row">
     <h1> Blog posts </h1> <br>
   </div>
   <div class="row">

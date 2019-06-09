@@ -73,7 +73,7 @@ class PagesController extends Controller
     }
     public function about(){
         
-        $aboutpage = About::orderBy('updated_at','desc')->first();
+        $aboutpage = About::orderBy('created_at','desc')->first();
         return view('about',['aboutpage'=>$aboutpage]);
     }
     public function privacy(){
@@ -90,12 +90,12 @@ class PagesController extends Controller
 
         $project = Project::find($id);
         $images = Image::where('project_id','=',$project->id)->get();
-        /*
-        $pdf = \PDF::loadView('pdf.invoice',['project'=>$project,'images'=>$images]);
-        return $pdf->download('invoice.pdf');
-        */
         
-        return view('pdf.invoice', ['project'=>$project,'images'=>$images]);
+        $pdf = PDF::loadView('pdf.invoice',['project'=>$project,'images'=>$images]);
+        return $pdf->download('invoice.pdf');
+        
+        
+        //return view('pdf.invoice', ['project'=>$project,'images'=>$images]);
     }
 
 }

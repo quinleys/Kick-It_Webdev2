@@ -4,7 +4,6 @@
 <style>
     .carousel{
         background: #2f4357;
-        margin-top: 20px;
     }
     .carousel-item{
         text-align: center;
@@ -67,7 +66,7 @@
                             <h3 class="titlestyle"> Latest news </h3>
                             <br/>
                             <div class="media">
-                                <img  class=" mr-3" src=" {{asset('images/'.$post->image)}}">
+                                <img  style="height: 200px" class=" mr-3" src=" {{asset('images/'.$post->image)}}">
                             <div class="media-body">
                                 <h5> {{ $post->name }}</h5>
                                 <p> {{$post->intro }} </p>
@@ -78,7 +77,6 @@
                         <br/>
                         <a  class="btn buttontest" href="{{route('post_path', ['post' => $post->id])}}">Read More</a>
                     </div>
-                    <br/>
             </div>
             @endif
             <div class="row rowstyle">
@@ -99,7 +97,7 @@
                                 @endforeach
                                 <div class="card-body">
                                     <h3 class="card-title">{{ $fanfav->name }}</h3>
-                                    @foreach ($project->tags as $tag)
+                                    @foreach ($fanfav->tags as $tag)
                                         <span class="badge badge-primary"> {{ $tag->name }} </span>
                                     @endforeach
                                     <p class="card-text">{{ $fanfav->shortintro }} </p>
@@ -159,7 +157,7 @@
                                                 <p class="card-text"><small class="text-muted"> posted {{ $project->created_at->diffForHumans() }}</small></p>
                                                
                                                 <div class="progress">
-                                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{{$project->credits}}" aria-valuemin="0" aria-valuemax="{{$project->creditgoal}}" style="width:{{$project->credits / $fanfav->creditgoal * 100 }}%">
+                                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{{$project->credits}}" aria-valuemin="0" aria-valuemax="{{$project->creditgoal}}" style="width:{{$project->credits / $project->creditgoal * 100 }}%">
                                                             {{$project->credits}} credits of {{$project->creditgoal}}
                                                         </div>
                                                     </div>

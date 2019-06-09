@@ -1,10 +1,8 @@
 <?php
 
-use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class DatabaseSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,8 +16,35 @@ class DatabaseSeeder extends Seeder
             'fullname' => 'fullname',
             'email' => 'admin@admin.com',
             'password' => bcrypt('secret'),
-            'admin' => true
+            'admin' => true,
+            'avatar' => 'default.jpg'
         ]);
-        
+
+        DB::table('users')->insert([
+            'name' => 'Quinten',
+            'fullname' => 'Quinten Leysen',
+            'email' => 'quinten@leysen.com',
+            'password' => bcrypt('secret'),
+            'admin' => false,
+            'avatar' => 'quinten.jpg'
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Fa',
+            'fullname' => 'Fatima de Fa',
+            'email' => 'fa@fa.com',
+            'password' => bcrypt('secret'),
+            'admin' => false,
+            'avatar' => 'fa.jpg'
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Mela',
+            'fullname' => 'Mela Ya',
+            'email' => 'mela@ya.com',
+            'password' => bcrypt('secret'),
+            'admin' => false,
+            'avatar' => 'mela.jpg'
+        ]);
     }
 }

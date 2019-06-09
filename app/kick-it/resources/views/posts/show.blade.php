@@ -2,7 +2,6 @@
 <style>
         .carousel{
             background: #2f4357;
-            margin-top: 20px;
         }
         .carousel-item{
             text-align: center;

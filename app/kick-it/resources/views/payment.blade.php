@@ -10,7 +10,7 @@
     </script>
 </head>
 @section('content') 
-<body>
+
         @guest 
         <div class="container">
                 <div class="row">
@@ -26,9 +26,9 @@
             </div>
         @endguest
 @Auth
-    <div class="container">
+    <div class="container containerstyle">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-">
                 <div class="panel panel-default credit-card-box">
                     <div class="panel-heading display-table" >
                         <div class="row display-tr" >
@@ -86,6 +86,5 @@
     </script>
     <script src="{{ asset('js/stripe-demo.js') }}"></script>
     @endAuth
-</body>
-</html>
+
 @endsection
