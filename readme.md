@@ -18,4 +18,4 @@
   
   
 ## comments
--pdf downloaden duurt lang dus staat momenteel in commentaar @PagesController-invoice
+-pdf downloaden duurt lang om te downloaden dus staat momenteel in commentaar @PagesController-invoice
