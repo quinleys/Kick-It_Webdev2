@@ -47,7 +47,7 @@
                     <input type="number" class="form-control" name='creditgoal' id="creditgoal" value="{{ $project->creditgoal }}">
                 </div>
                 <div class="form-group">
-                <button type="submit" class="btn btn-primary mb-2">Edit my project!</button>
+                <button type="submit" class="btn buttonstyle mb-2">Edit my project!</button>
                 </div>
                 </form>
 

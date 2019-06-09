@@ -5,6 +5,7 @@ Quinten Leysen
 ## Deploy guide
 
 -npm install
+
 -php artisan db:seed
 
 -php artisan serve

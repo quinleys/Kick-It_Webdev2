@@ -20,6 +20,7 @@ class UserController extends Controller
         //$d = Donation::all();
         $donations = Donation::where('user_id','=',$user->id)->get();
         $packages = Package::all();
+        
     	return view('profile', array('user' => Auth::user()),['projects'=>$projects,'donations'=>$donations,'packages'=>$packages] );
     }
     public function update_avatar(Request $request){

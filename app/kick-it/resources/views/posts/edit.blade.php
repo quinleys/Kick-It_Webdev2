@@ -29,7 +29,7 @@
                     <textarea class="form-control" name='description' id="description" rows="10" > {{ $post->description }}</textarea>
                 </div>
                 <div class="form-group">
-                <button type="submit" class="btn btn-primary mb-2">Edit my post!</button>
+                <button type="submit" class="btn buttonstyle mb-2">Edit my post!</button>
                 </div>
                 </form>
 

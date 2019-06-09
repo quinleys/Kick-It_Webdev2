@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-<a href="{{ url('/privacys/create') }}" class="btn btn-primary">Make privacy page</a>
+<a href="{{ url('/privacys/create') }}" class="btn buttonstyle">Make privacy page</a>
         <hr>
                 <table class="table">
                     <thead>
@@ -23,13 +23,13 @@
                                 <th> {{ $privacy->id }} </th>
                                 <td> {{ $privacy->title }} </td>
                                 <td> {{$privacy->updated_at }} </td>
-                                <td><a class="btn btn-primary" href=" {{ route('privacy_path', ['privacy' => $privacy->id]) }}"> view</a> </td>
-                                <td><a class="btn btn-success" href=" {{ route('edit_privacy_path', ['privacy'=>$privacy->id]) }}"> edit</a> </td>
+                                <td><a class="btn buttonstyle" href=" {{ route('privacy_path', ['privacy' => $privacy->id]) }}"> view</a> </td>
+                                <td><a class="btn buttonstyle" href=" {{ route('edit_privacy_path', ['privacy'=>$privacy->id]) }}"> edit</a> </td>
                                 <td>
                                 <form action="{{ route('delete_privacy_path', ['privacy'=>$privacy->id]) }}" method="POST">
                                         @csrf 
                                         @method('DELETE')
-                                        <button class="btn btn-danger">Delete</button>
+                                        <button class="btn buttonstyle-danger">Delete</button>
                                     </form>
                                 </td>
                             </tr>

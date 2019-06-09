@@ -10,10 +10,10 @@
                 <label>Update Profile Image</label>
                 <input type="file" name="avatar">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="submit" class="pull-right btn btn-sm btn-primary">
+                <input type="submit" class="pull-right btn btn-sm buttonstyle">
             </form>
             <p> My credits: {{$user->credits}} </p>
-            <a href="{{ url('/stripe') }}" class="btn btn-primary" role="button">add credits</a>
+            <a href="{{ url('/stripe') }}" class="btn buttonstyle" role="button">add credits</a>
         </div>
     </div>
     <div class="row">
@@ -23,30 +23,39 @@
             </div>
             @foreach($projects as $project)
                 @if($project->user_id == Auth::user()->id)
-                    <div class="col-md-6">
-                        <div class="card cardstyle">
-                            <div class="card-header"> 
-                                <a href=" {{ route('project_path', ['project' => $project->id]) }}"> {{ $project->name }} </a> 
-                            </div>
-                            <div class='card-body'>
-                                label: {{ $project->label }} <br>
-                                description:{{ $project->description }} <br>
-                                Credits:{{ $project->credits }}/{{ $project->creditgoal }} <br>
-                                Made by: {{ $project->user_id  }}
+                <div class="row rowstyle">
+                            <div class="col-md-6">
+                                <div class="card cardstyle">
+                                    <div class="card-body ">
+                                        <h3 class="card-title">{{ $project->name }}</h3>
+                                        @foreach ($project->tags as $tag)
+                                            <span class="badge badge-primary"> {{ $tag->name }} </span>
+                                        @endforeach
+                                        <p class="card-text">{{ $project->shortintro }} </p>
+                                            <a href="{{ route('category',['category' => $project->category->id] )}}">
+                                                        <p class="card-text"> Category: {{ $project->category->name}}</p></a>
+                                                        <p class="card-text"><small class="text-muted"> posted {{ $project->created_at->diffForHumans() }}</small></p>
+                                                       
+                                                        <div class="progress">
+                                                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="{{$project->credits}}" aria-valuemin="0" aria-valuemax="{{$project->creditgoal}}" style="width:{{$project->credits / $project->creditgoal * 100 }}%">
+                                                                    {{$project->credits}} credits of {{$project->creditgoal}}
+                                                                </div>
+                                                            </div>
+                                                            <br/>
+                                                            
+                                                        <footer class="blockquote-footer">Made by: <cite title="Source Title">{{ $project->user->name }}</cite></footer>
+                                                        <a href="{{ route('project_path', ['project' => $project->id]) }}" class="btn buttonstyle">View</a>
+                                                        <a class="btn buttonstyle" role="button" href="{{ route('edit_project_path', ['project'=>$project->id]) }}">Edit</a>
+                                                        <form action="{{ route('delete_project_path', ['project'=>$project->id]) }}" method="POST">
+                                                                @csrf 
+                                                                @method('DELETE')
+                                                                <button type="submit" class="btn buttonstyle-danger">Delete</button>
+                                                            </form>
+                                                    </div>
+                                
         
-                                <p class="lead">
-                                    posted
-                                    {{ $project->created_at->diffForHumans() }}
-                                </p>
-                                <a class="btn btn-primary" role="button" href="{{ route('edit_project_path', ['project'=>$project->id]) }}">Edit</a>
-        
-                                <form action="{{ route('delete_project_path', ['project'=>$project->id]) }}" method="POST">
-                                    @csrf 
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
+                                
                                 <ul>
-                                    <li><button>like</button> {{ $project->favorite_to_users }}</li>
                                     <li><a href=" {{ route('project_path', ['project' => $project->id]) }}"> {{ $project->comments()->count() }}  comments </a></li>
                                 </ul>
                             </div>

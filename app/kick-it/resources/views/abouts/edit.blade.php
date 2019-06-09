@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container containerstyle">
         
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+            <h1>Edit Aboutpage</h1>
                 <form action=" {{ route('update_about_path',['about'=>$about->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -31,7 +32,7 @@
                             <textarea class="form-control" name='homeintro'  rows="5" >{{$about->homeintro}}</textarea>
                         </div>
                 <div class="form-group">
-                <button type="submit" class="btn btn-primary mb-2">Save</button>
+                <button type="submit" class="btn buttonstyle mb-2">Save</button>
                 </div>
                 </form>
 

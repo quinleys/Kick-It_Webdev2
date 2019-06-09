@@ -10985,7 +10985,7 @@ a.text-dark:focus {
   font-family: "FrankRuhlLibre", "serif";
 }
 
-.buttontest {
+.buttonstyle {
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -10996,16 +10996,32 @@ a.text-dark:focus {
   color: white;
 }
 
+.buttonstyle-danger {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 12px;
+  background-color: #e3342f;
+  color: white;
+}
+
 .cardstyle {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .footerstyle {
-  border-top: 3px grey;
+  padding-right: 30px;
+  margin: 10px;
 }
 
 .rowstyle {
   padding-top: 40px;
   padding-bottom: 40px;
+}
+
+.blue {
+  color: #297DF6;
 }
 

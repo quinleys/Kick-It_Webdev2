@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-        
+<div class="container containerstyle">
+        <h1>Edit Privacy Policy </h1>
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
                 <form action=" {{ route('update_privacy_path',['privacy'=>$privacy->id]) }}" method="POST" enctype="multipart/form-data">
@@ -22,7 +22,7 @@
                     <textarea class="form-control" name='bodyText'  rows="20" >{{$privacy->bodyText}}</textarea>
                 </div>
                 <div class="form-group">
-                <button type="submit" class="btn btn-primary mb-2">Save</button>
+                <button type="submit" class="btn buttonstyle mb-2">Save</button>
                 </div>
                 </form>
 

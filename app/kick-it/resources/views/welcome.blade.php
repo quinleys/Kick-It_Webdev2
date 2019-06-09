@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <br/>
-                        <a  class="btn buttontest" href="{{route('post_path', ['post' => $post->id])}}">Read More</a>
+                        <a  class="btn buttonstyle" href="{{route('post_path', ['post' => $post->id])}}">Read More</a>
                     </div>
             </div>
             @endif
@@ -111,7 +111,7 @@
                                                             </div>
                                                         </div>
                                                         <br/>
-                                                        <a href="{{ route('project_path', ['project' => $fanfav->id]) }}" class="btn btn-primary">View</a>
+                                                        <a href="{{ route('project_path', ['project' => $fanfav->id]) }}" class="btn buttonstyle">View</a>
                                                     <footer class="blockquote-footer">Made by: <cite title="Source Title">{{ $fanfav->user->name }}</cite></footer>
                                 </div>
                             </div>
@@ -127,7 +127,7 @@
                         <h5> {{ $about->hometitle }}</h5>
                         <p> {{$about->homeintro }} </p>
                     
-                    <a class="btn btn-primary" href="{{url('/about')}}">Learn More</a>
+                    <a class="btn buttonstyle" href="{{url('/about')}}">Learn More</a>
                 </div>
             </div>     
             @endif   
@@ -162,7 +162,7 @@
                                                         </div>
                                                     </div>
                                                     <br/>
-                                                    <a href="{{ route('project_path', ['project' => $project->id]) }}" class="btn btn-primary">View</a>
+                                                    <a href="{{ route('project_path', ['project' => $project->id]) }}" class="btn buttonstyle">View</a>
                                                 <footer class="blockquote-footer">Made by: <cite title="Source Title">{{ $project->user->name }}</cite></footer>
                             </div>
                         </div>

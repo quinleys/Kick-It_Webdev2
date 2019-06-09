@@ -21,7 +21,7 @@ class ImagesTableSeeder extends Seeder
         DB::table('images')->insert([
             'project_id' => 1,
             'filepath' => 'storage/project-1',
-            'filename' => 'project1_1.jpg',
+            'filename' => 'project-1_1.jpg',
             'created_at' => '2019-06-08 17:20:53',
             'updated_at' => '2019-06-08 17:20:53'
         ]);

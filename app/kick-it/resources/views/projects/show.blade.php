@@ -74,7 +74,7 @@
                                 @if(Auth::user()->id == $project->user_id)
                                         <a class="btn btn-outline-light btn-lg btn-block" role="button" href="{{ route('edit_project_path', ['project'=>$project->id]) }}">Edit</a>
                                         <a class="btn btn-outline-light btn-lg btn-block" href="{{ route('packages.edit',['project'=>$project->id]) }}">Add Packages </a>
-                                        <a class="btn bbtn-outline-light btn-lg btn-block" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
+                                        <a class="btn btn-outline-light btn-lg btn-block" href="{{ route('pdf.invoice',['project'=>$project->id]) }}">Download PDF </a>
                                         <br/>
                                         <form action="{{ route('delete_project_path', ['project'=>$project->id]) }}" method="POST">
                                                 @csrf 

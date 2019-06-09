@@ -39,6 +39,6 @@
             
         </main>
         
-        @include('partials._footer')
+        @include('partials.__footer')
 </body>
 </html>

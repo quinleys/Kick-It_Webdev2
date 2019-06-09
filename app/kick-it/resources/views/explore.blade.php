@@ -6,7 +6,7 @@
     `<div class="row">
         @foreach ($categories as $category)
             <ul>
-                <a href="{{ route('category',$category->id)}}"><li>{{ $category->name}}</li>
+            <a href="{{ route('category',$category->id)}}"><li>{{ $category->name}}</li></a>
             </ul>
         @endforeach
     </div>

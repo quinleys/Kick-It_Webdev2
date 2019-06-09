@@ -56,7 +56,7 @@
                                             <input type="number" class="form-control" name='max_value' placeholder="max value">
                                         </div>
                             <div class="form-group">
-                            <button type="submit" class="btn btn-primary mb-2">Add Package!</button>
+                            <button type="submit" class="btn buttonstyle mb-2">Add Package!</button>
                             </div>
                             </form>
             

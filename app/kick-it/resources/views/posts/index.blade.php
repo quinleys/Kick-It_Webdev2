@@ -8,7 +8,7 @@
     <h1> Blog posts </h1> <br>
   </div>
   <div class="row">
-    <a href="{{ url('/posts/create') }}" class="btn btn-primary">Make Post</a>
+    <a href="{{ url('/posts/create') }}" class="btn buttonstyle">Make Post</a>
     <br/>
   </div>
   <div class="row rowstyle">
@@ -34,14 +34,14 @@
                       <td>{{ $post->updated_at}}</td>
                       <td>{{ $post->created_at}}</td>
 
-                      <td><a href="{{ route('edit_post_path', ['post'=>$post->id]) }}" class="btn btn-primary">Edit Post</a></td>
+                      <td><a href="{{ route('edit_post_path', ['post'=>$post->id]) }}" class="btn buttonstyle">Edit Post</a></td>
                       <td><form action="{{ route('delete_post_path', ['post'=>$post->id]) }}" method="POST">
                             @csrf 
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn buttonstyle-danger">Delete</button>
                         </form>
                     </td>
-                    <td><a class="btn btn-success" href=" {{ route('post_path', ['post' => $post->id]) }}"> view</a> </td>
+                    <td><a class="btn buttonstyle" href=" {{ route('post_path', ['post' => $post->id]) }}"> view</a> </td>
                     </tr>
                     @endforeach
 
