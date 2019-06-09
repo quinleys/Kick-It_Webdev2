@@ -91,7 +91,7 @@
                             <div class="card cardstyle">
                                 @foreach ($images as $image)
                                     @if($image->project_id === $fanfav->id)
-                                        <img src="{{ asset($image->filepath . '/' . $image->filename) }}" class="card-img-top" alt="">
+                                        <img src="{{ asset($image->filepath . '/' . $image->filename) }}" class="card-img-top"  style="height: 25%"alt="">
                                         @break
                                     @endif
                                 @endforeach
@@ -142,7 +142,7 @@
                         <div class="card cardstyle">
                             @foreach ($images as $image)
                                 @if($image->project_id === $project->id)
-                                    <img src="{{ asset($image->filepath . '/' . $image->filename) }}" class="card-img-top" alt="">
+                                    <img src="{{ asset($image->filepath . '/' . $image->filename) }}" class="card-img-top" style="height: 20%" alt="">
                                     @break
                                 @endif
                             @endforeach
