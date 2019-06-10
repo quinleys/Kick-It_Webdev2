@@ -25,7 +25,7 @@ class ProjectsController extends Controller
     public function index()
     {
         $user = Auth::user();
-            $projects = Project::orderBy('created_at','desc')->paginate(6);
+        $projects = Project::orderBy('created_at','desc')->paginate(6);
         $images = Image::all();
         return view('projects.index', ['projects'=>$projects, 'images'=>$images]);
     }
@@ -148,7 +148,7 @@ class ProjectsController extends Controller
         $project = Project::find($id);
 
         $project->name=$request->name;
-        $project->label=$request->label;
+        $project->category_id =  $request->category;
         $project->shortintro=$request->shortintro;
         $project->description=$request->description;
         $project->creditgoal=$request->creditgoal;
@@ -159,11 +159,7 @@ class ProjectsController extends Controller
 
         $project->tags()->sync($request->tags,true);
 
-        if($project->status=='succeeded'){
-    
-            $request->session()->flash('success',
-            'Je hebt succesvol jouw post aangepast');
-        }
+        Session::flash('success','Je hebt succesvol jouw post opgeslaan');
 
         
         return redirect()->route('projects_path');

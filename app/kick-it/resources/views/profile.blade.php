@@ -21,10 +21,12 @@
                 <br>
             <h3>your projects: </h3>
             </div>
+                    
+        </div>
+        <div class="row rowstyle">
             @foreach($projects as $project)
                 @if($project->user_id == Auth::user()->id)
-                <div class="row rowstyle">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="card cardstyle">
                                     <div class="card-body ">
                                         <h3 class="card-title">{{ $project->name }}</h3>
@@ -52,9 +54,6 @@
                                                                 <button type="submit" class="btn buttonstyle-danger">Delete</button>
                                                             </form>
                                                     </div>
-                                
-        
-                                
                                 <ul>
                                     <li><a href=" {{ route('project_path', ['project' => $project->id]) }}"> {{ $project->comments()->count() }}  comments </a></li>
                                 </ul>
@@ -62,14 +61,12 @@
         
                             
                         </div>
-                        <br/>
-                    </div>
-                @endif
-        
+                        @endif
             @endforeach
+                    </div>
+                
             
-        
-        </div>
+
         <div class="row">
                 <div class="text-center">
                     {!! $projects->links(); !!}

@@ -78,11 +78,7 @@ class PostsController extends Controller
 
         $post->update();
 
-        if($post->status=='succeeded'){
-    
-            $request->session()->flash('success',
-            'Je hebt succesvol jouw post aangepast');
-        }
+        Session::flash('success','Je hebt succesvol jouw post opgeslaan');
 
         
         return redirect()->route('posts_path');

@@ -16,7 +16,7 @@ class UserController extends Controller
     public function profile(){
         $user = Auth::user();
 
-        $projects = Project::where('user_id','=', $user->id)->paginate(4);
+        $projects = Project::where('user_id','=', $user->id)->paginate(3);
         //$d = Donation::all();
         $donations = Donation::where('user_id','=',$user->id)->get();
         

@@ -67,6 +67,13 @@
                         @if($project->category_id)
                             <p class="card-text">Category: <strong> {{ $project->category->name}} </strong></p>
                         @endif
+                        <p>Tags: 
+                        @if($project->tags)
+                            @foreach ($project->tags as $tag)
+                                <strong> {{$tag->name}}, </strong> 
+                            @endforeach
+                        @endif
+                    </p>
                             <p> Current credits: <strong>{{ $project->credits }}</strong></p>
                             <p> creditgoal: <strong>{{$project->creditgoal}}</strong></p>
                             <p> Made by: <strong> {{$project->user->name}} </strong></p>
